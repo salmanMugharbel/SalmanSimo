@@ -2,16 +2,12 @@ package test.java;
 
 public class RemainderCalculatorTest {
     public static void main(String[] args) {
-        // Test case 1: Normal case
         testCalculateAndDisplayRemainder(10, 3, 1);
 
-        // Test case 2: Divisor is 1
         testCalculateAndDisplayRemainder(10, 1, 0);
 
-        // Test case 3: Dividend is 0
         testCalculateAndDisplayRemainder(0, 5, 0);
 
-        // Test case 4: Divisor is larger than dividend
         testCalculateAndDisplayRemainder(3, 5, 3);
 
         // Test case 5: Negative dividend
