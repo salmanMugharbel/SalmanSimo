@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    tools {
+        // Specify Maven as the build tool
+        maven 'Maven 3.8.1' // Use the name defined in Jenkins > Global Tool Configuration
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the repository (assumes code is in version control)
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Compile the Java code
+                sh 'mvn clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run the test cases
+                sh 'mvn test'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archive the test results (if needed)
+            junit '**/target/surefire-reports/*.xml'
+
+            // Clean up workspace
+            cleanWs()
+        }
+    }
+}
