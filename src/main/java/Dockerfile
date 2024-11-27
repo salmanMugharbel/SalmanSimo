@@ -2,7 +2,7 @@
 FROM openjdk:11-jre-slim
 
 # Set the working directory inside the container
-BreadcrumbsSalmanSimo/src/main/java/docker-compose
+WORKDIR /app  # This line sets the working directory
 
 # Copy the Java source file into the container
 COPY RemainderCalculator.java .
