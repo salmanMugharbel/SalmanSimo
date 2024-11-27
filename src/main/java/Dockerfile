@@ -1,8 +1,8 @@
-# Use the official OpenJDK image as the base image
-FROM openjdk:11-jre-slim
+# Use an OpenJDK image that includes both JRE and JDK
+FROM openjdk:11-jdk-slim
 
 # Set the working directory inside the container
-WORKDIR /app  # This line sets the working directory
+WORKDIR /app
 
 # Copy the Java source file into the container
 COPY RemainderCalculator.java .
